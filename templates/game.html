@@ -241,10 +241,11 @@ Game Table
     function updateUI(){
         resetUI();
         const round=roundsData[currentRoundIndex];
-        document.getElementById('current-round').textContent = `Round ${round.round_number}`;
+        console.log(round)
+        document.getElementById('current-round').textContent = `Round ${currentRoundIndex+1}`;
         const holecards = round.hole_cards;
-        const communitycards = round.replay_data.communitycards;
-        const actions = round.replay_data.actions;
+        const communitycards = round.communitycards;
+        const actions = round.actions;
         const player = "{{ player|safe }}";
         console.log(holecards);
         console.log(communitycards);
@@ -439,7 +440,7 @@ Game Table
             const chips_exchanged= round.chips_exchanged;
             const total_chips_exchanged=round.total_chips_exchanged;
             const winner = round.winner;
-            console.log(winner);
+
 
             let resultsHTML = `
             <h2>Round Complete!</h2>
@@ -460,8 +461,10 @@ Game Table
             // Helper function to determine the chip text and color
             const getChipsHTML = (playerName) => {
 
-
-                if (playerName === winner) {
+                if(winner=="No one"){
+                    return `<span style="color: #00ff00;">${chips_exchanged}</span>`;
+                }
+                else if (playerName === winner) {
                     // The winner gains the amount bet by the loser
 
                     return `<span style="color: #00ff00;">+${chips_exchanged}</span>`;

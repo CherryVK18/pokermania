@@ -212,10 +212,8 @@ def replay(request, match_id):
         return redirect('/my_bots/')
 
     player = "L" if match.bot1.user == request.user else "R"
-    for round in match.rounds_data:
-        round['communitycards_0'] = round['replay_data']['communitycards'][0] if round['replay_data'][
-            'communitycards'] else []
-    print(match)
+
+
     return render(request, 'game.html', {
         'match': match,
         'player': player,
