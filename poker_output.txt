@@ -1,0 +1,43 @@
+Started the round 1
+Street "preflop" started. (community card = [])
+"Random_bot" declared "call:500"
+"p5" declared "raise:750"
+"Random_bot" declared "raise:1000"
+"p5" declared "call:1000"
+Street "flop" started. (community card = ['CA', 'H5', 'C7'])
+"Random_bot" declared "raise:500"
+"p5" declared "call:500"
+Street "turn" started. (community card = ['CA', 'H5', 'C7', 'SA'])
+"Random_bot" declared "raise:500"
+"p5" declared "fold:0"
+"['Random_bot']" won the round 1 (stack = {'p5': 8500, 'Random_bot': 11500})
+Started the round 2
+Street "preflop" started. (community card = [])
+"p5" declared "raise:750"
+"Random_bot" declared "raise:1000"
+"p5" declared "call:1000"
+Street "flop" started. (community card = ['SQ', 'H9', 'CJ'])
+"p5" declared "fold:0"
+"['Random_bot']" won the round 2 (stack = {'p5': 7500, 'Random_bot': 12500})
+Started the round 3
+Street "preflop" started. (community card = [])
+"Random_bot" declared "call:500"
+"p5" declared "call:500"
+Street "flop" started. (community card = ['D9', 'DA', 'CQ'])
+"Random_bot" declared "call:0"
+"p5" declared "fold:0"
+"['Random_bot']" won the round 3 (stack = {'p5': 7000, 'Random_bot': 13000})
+Started the round 4
+Street "preflop" started. (community card = [])
+"p5" declared "raise:750"
+"Random_bot" declared "fold:0"
+"['p5']" won the round 4 (stack = {'p5': 7500, 'Random_bot': 12500})
+Started the round 5
+Street "preflop" started. (community card = [])
+"Random_bot" declared "call:500"
+"p5" declared "raise:750"
+"Random_bot" declared "call:750"
+Street "flop" started. (community card = ['D6', 'C2', 'HA'])
+"Random_bot" declared "call:0"
+"p5" declared "fold:0"
+"['Random_bot']" won the round 5 (stack = {'p5': 6750, 'Random_bot': 13250})
