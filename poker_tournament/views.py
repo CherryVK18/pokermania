@@ -1,5 +1,4 @@
 import traceback
-
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import get_user_model, logout, authenticate, login
@@ -25,7 +24,7 @@ def register(request):
             messages.error(request, "Passwords do not match!")
             return redirect('/login/')
 
-        # # Check if password meets strength requirements
+        # Check if password meets strength requirements
         if len(password) < 8:
             messages.error(request, "Password must be at least 8 characters long.")
             return redirect('/login/')
@@ -227,6 +226,10 @@ def test_run(request):
     bot_name = request.POST.get('name')
     bot_file = request.FILES['file']
 
+    if Bot.objects.filter(name=bot_name).exists():
+        messages.info(request, "BotName already taken!")
+        return redirect('/deploy_bot/')
+
     # Create a test bot
     new_test_bot = TestBot.objects.create(user=user, name=bot_name, file=bot_file)
 
@@ -256,7 +259,9 @@ def test_run(request):
             new_test_bot,
             opponent_bot
         )
-
+        if(win_counts==None):
+            return JsonResponse({"Error":winner,"Error":chips_exchanged})
+        
         # Log results in TestMatch model
         TestMatch.objects.create(
             test_bot=new_test_bot,
