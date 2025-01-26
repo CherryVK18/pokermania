@@ -268,8 +268,11 @@ Game Table
         overlay.id = 'overlay';
         document.body.appendChild(overlay);
     }
+
     let player1Bet = 0;
     let player2Bet = 0;
+    let pot = 0;
+    
     function updateUI(){
         resetUI();
         const round=roundsData[currentRoundIndex];
@@ -304,7 +307,6 @@ Game Table
 
         let currentStreet = 0; // 0 = preflop, 1 = flop, 2 = turn, 3 = river
         let actionIndex = 0; // Action index for the current street
-        let pot = 0; // Total pot amount
 
         let isfold=false;
 
@@ -316,9 +318,9 @@ Game Table
         const player1ActionsElement = document.getElementById("player1-actions");
         const player2ActionsElement = document.getElementById("player2-actions");
 
-        
-
         updateBalancesForRound(currentRoundIndex,pot+player1Bet+player2Bet);
+        
+        pot=0;
         
         if(currentRoundIndex&1){
             if(player==="R"){
@@ -495,15 +497,25 @@ Game Table
             const total_chips_exchanged=round.total_chips_exchanged;
             const winner = round.winner;
 
-
-            let resultsHTML = `
-            <h2>Round Complete!</h2>
-            <p>
-                <strong style="color: #ffcc00;">${winner}</strong> wins <strong style="color: #00ff00;">${pot+player1Bet+player2Bet}</strong> from the pot!
-            </p>
-            <br><br/>
-            `;
-
+            let resultsHTML = ``;
+            if(winner!="No one"){
+                resultsHTML += `
+                <h2>Round Complete!</h2>
+                <p>
+                    <strong style="color: #ffcc00;">${winner}</strong> wins <strong style="color: #00ff00;">${pot+player1Bet+player2Bet}</strong> from the pot!
+                </p>
+                <br><br/>
+                `;
+            }
+            else{
+                resultsHTML += `
+                <h2>Round Complete!</h2>
+                <p>
+                    <strong style="color: #ffcc00;">Draw</strong>
+                </p>
+                <br><br/>
+                `;
+            }
             if (!isfold&&currentStreet!=0) {
                 resultsHTML += `
                     <h3>Community Cards</h3>
