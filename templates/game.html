@@ -107,28 +107,58 @@ Game Table
         document.getElementById('player2-card-2').innerHTML = '';
     }
     const roundsData = {{ rounds_data|safe }}; // Pass rounds_data to JS
-    console.log(roundsData);
+    const player = "{{ player|safe }}";
+    // console.log(roundsData);
     let currentRoundIndex = 0;
     let player1Balance = 10000; // Initial balance for player 1
     let player2Balance = 10000; // Initial balance for player 2
     let player1Name="{{ match.bot1.name|safe }}";
     let player2Name="{{ match.bot2.name|safe }}";
-    function updateBalancesForRound(roundIndex) {
+    function updateBalancesForRound(roundIndex,chips) {
         // Reset balances to the starting value at the start of the first round
         if (roundIndex === 0) {
-            player1Balance = 10000;
-            player2Balance = 10000;
-        } else {
+            if(player==="L"){
+                player1Balance = 9500; // Initial balance for player 1
+                player2Balance = 9750; // Initial balance for player 2
+            }
+            else{
+                player1Balance = 9750;
+                player2Balance = 9500;
+            }
+        }
+        
+        else {
+            // console.log(player2Balance);
             const round = roundsData[roundIndex - 1];
-            const totalChipsExchanged = round.total_chips_exchanged;
+            if(roundIndex&1){
+                if(player==="R"){
+                    player1Balance -= 500;
+                    player2Balance -= 250;
+                }
+                else{
+                    player1Balance -= 250;
+                    player2Balance -= 500;
+                }
+            }
+            else{
+                if(player==="L"){
+                    player1Balance -= 500;
+                    player2Balance -= 250;
+                }
+                else{
+                    player1Balance -= 250;
+                    player2Balance -= 500;
+                }
+            }
+
             const winner = round.winner;
 
             // Adjust balances based on the winner
             if (winner === player1Name) {
-                player1Balance += totalChipsExchanged;
+                player1Balance += chips;
 
             } else if (winner === player2Name) {
-                player2Balance += totalChipsExchanged;
+                player2Balance += chips;
 
             }
         }
@@ -238,20 +268,21 @@ Game Table
         overlay.id = 'overlay';
         document.body.appendChild(overlay);
     }
+    let player1Bet = 0;
+    let player2Bet = 0;
     function updateUI(){
         resetUI();
         const round=roundsData[currentRoundIndex];
-        console.log(round)
+        // console.log(round)
         document.getElementById('current-round').textContent = `Round ${currentRoundIndex+1}`;
         const holecards = round.hole_cards;
         const communitycards = round.communitycards;
         const actions = round.actions;
         const player = "{{ player|safe }}";
-        console.log(holecards);
-        console.log(communitycards);
-        console.log(actions);
-        console.log(player);
-
+        // console.log(holecards);
+        // console.log(communitycards);
+        // console.log(actions);
+        // console.log(player);
 
 
 
@@ -285,13 +316,36 @@ Game Table
         const player1ActionsElement = document.getElementById("player1-actions");
         const player2ActionsElement = document.getElementById("player2-actions");
 
+        
 
-        let player1Bet = 0;
-        let player2Bet = 0;
+        updateBalancesForRound(currentRoundIndex,pot+player1Bet+player2Bet);
+        
+        if(currentRoundIndex&1){
+            if(player==="R"){
+                player1Bet = 500;
+                player2Bet = 250;
+            }
+            else{
+                player1Bet = 250;
+                player2Bet = 500;
+            }
+        }
+        else{
+            if(player==="L"){
+                player1Bet = 500;
+                player2Bet = 250;
+            }
+            else{
+                player1Bet = 250;
+                player2Bet = 500;
+            }
+        }
         let done = false;
         player1ActionsElement.classList.add("hidden");
         player2ActionsElement.classList.add("hidden");
-        updateBalancesForRound(currentRoundIndex);
+        betLeftElement.textContent = `$${player1Bet}`;
+        betRightElement.textContent = `$${player2Bet}`;
+        potElement.textContent = `Pot: $${pot}`;
         document.getElementById('player1-balance').textContent = `$${player1Balance}`;
         document.getElementById('player2-balance').textContent = `$${player2Balance}`;
 
@@ -318,13 +372,13 @@ Game Table
                     console.log(player1Bet);
                     console.log(player2Bet);
                     if(playerName === player1Name){
-                        player2Balance-=player2Bet;
+                        // if(actionIndex!=0) player2Balance-=player2Bet;
                         player1ActionsElement.textContent = `${formattedAction}`;
                         player1ActionsElement.classList.remove("hidden");
                         player2ActionsElement.classList.add("hidden");
                     }
                     else{
-                        player1Balance-=player1Bet;
+                        // if(actionIndex!=0) player1Balance-=player1Bet;
                         player2ActionsElement.textContent = `${formattedAction}`;
                         player2ActionsElement.classList.remove("hidden");
                         player1ActionsElement.classList.add("hidden");
@@ -445,7 +499,7 @@ Game Table
             let resultsHTML = `
             <h2>Round Complete!</h2>
             <p>
-                <strong style="color: #ffcc00;">${winner}</strong> wins <strong style="color: #00ff00;">${total_chips_exchanged}</strong> from the pot!
+                <strong style="color: #ffcc00;">${winner}</strong> wins <strong style="color: #00ff00;">${pot+player1Bet+player2Bet}</strong> from the pot!
             </p>
             <br><br/>
             `;
@@ -557,16 +611,3 @@ Game Table
 </script>
 
 {% endblock %}
-
-<tbody>
-    <tr>
-        <td style="padding: 5px;">${player1Name}(You)</td>
-        <td style="padding: 0px;">${player1CardsHTML}</td>
-        <td style="padding: 5px;">${getChipsHTML(player1Name)}</td>
-    </tr>
-    <tr>
-        <td style="padding: 5px;">${player2Name}</td>
-        <td style="padding: 5px;">${player2CardsHTML}</td>
-        <td style="padding: 5px;">${getChipsHTML(player2Name)}</td>
-    </tr>
-</tbody>
