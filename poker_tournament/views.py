@@ -1,4 +1,7 @@
 import traceback
+
+from django.shortcuts import get_object_or_404
+from django.db.models import Q
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import get_user_model, logout, authenticate, login
@@ -24,7 +27,6 @@ def register(request):
             messages.error(request, "Passwords do not match!")
             return redirect('/login/')
 
-        # Check if password meets strength requirements
         if len(password) < 8:
             messages.error(request, "Password must be at least 8 characters long.")
             return redirect('/login/')
@@ -226,9 +228,11 @@ def test_run(request):
     bot_name = request.POST.get('name')
     bot_file = request.FILES['file']
 
+
     if Bot.objects.filter(name=bot_name).exists():
         messages.info(request, "BotName already taken!")
         return redirect('/deploy_bot/')
+
 
     # Create a test bot
     new_test_bot = TestBot.objects.create(user=user, name=bot_name, file=bot_file)
@@ -259,12 +263,14 @@ def test_run(request):
             new_test_bot,
             opponent_bot
         )
+
         if(win_counts==None):
             return JsonResponse({"Error":winner,"Error":chips_exchanged})
         
         # Log results in TestMatch model
         TestMatch.objects.create(
-            test_bot=new_test_bot,
+            bot1=new_test_bot,
+
             opponent_name=opponent_bot.name,
             winner=winner,
             total_chips_exchanged=chips_exchanged,
@@ -274,6 +280,7 @@ def test_run(request):
         )
 
         results.append({
+            'match_id': test_match.id,
             'opponent_name': opponent_bot.name,
             'winner': winner,
             'chips_exchanged': chips_exchanged,
@@ -286,3 +293,48 @@ def test_run(request):
         'results': results,
         'testbot': new_test_bot
     })
+
+@login_required
+def test_replay(request, match_id):
+    match = TestMatch.objects.get(id=match_id)
+
+    if match.bot1.user != request.user:
+        return redirect('/test_run/')
+
+    player = "L" if match.bot1.user == request.user else "R"
+
+    return render(request, 'testgame.html', {
+        'bot_name':match.bot1.name,
+        'player_name':match.opponent_name,
+        'match': match,
+        'player': player,
+        'rounds_data': match.rounds_data,
+    })
+
+def test_match_results(request, bot_id):
+    bot_instance = get_object_or_404(TestBot, id=bot_id)
+
+    matches = TestMatch.objects.filter(
+        Q(bot1_id=bot_instance.id)
+    ).order_by('-played_at')  
+
+    # Collect match results
+    results = []
+    for match in matches:
+        results.append({
+            'match_id': match.id,
+            'opponent_name': match.opponent_name,
+            'winner': match.winner,
+            'chips_exchanged': match.total_chips_exchanged,
+            'bot_wins': match.test_bot_wins,
+            'opponent_wins': match.opponent_wins,
+            'played_at': match.played_at,
+            'rounds_data': match.rounds_data,
+        })
+
+    context = {
+        'testbot': bot_instance,
+        'results': results,
+    }
+    return render(request, 'test_run_Response2.html', context)
+

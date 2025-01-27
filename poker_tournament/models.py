@@ -96,7 +96,8 @@ class TestBot(models.Model):
 
 class TestMatch(models.Model):
     """New model to store test match results"""
-    test_bot = models.ForeignKey(TestBot, related_name='test_matches', on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True)  # Changed from game_id to id for consistency
+    bot1 = models.ForeignKey(TestBot, related_name='test_matches', on_delete=models.CASCADE)
     opponent_name = models.TextField()
     winner = models.TextField()
     total_chips_exchanged = models.IntegerField()

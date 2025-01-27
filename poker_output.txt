@@ -1,55 +1,45 @@
 Started the round 1
 Street "preflop" started. (community card = [])
+"Random_bot" declared "raise:750"
+"call" declared "call:750"
+Street "flop" started. (community card = ['SQ', 'D4', 'DK'])
+"Random_bot" declared "call:0"
+"call" declared "call:0"
+Street "turn" started. (community card = ['SQ', 'D4', 'DK', 'S7'])
+"Random_bot" declared "raise:500"
 "call" declared "call:500"
-"prob" declared "fold:0"
-"['call']" won the round 1 (stack = {'prob': 9500, 'call': 10500})
+Street "river" started. (community card = ['SQ', 'D4', 'DK', 'S7', 'HT'])
+"Random_bot" declared "fold:0"
+"['call']" won the round 1 (stack = {'call': 11250, 'Random_bot': 8750})
 Started the round 2
 Street "preflop" started. (community card = [])
-"prob" declared "raise:750"
+"call" declared "call:500"
+"Random_bot" declared "raise:750"
 "call" declared "call:750"
-Street "flop" started. (community card = ['HA', 'D4', 'HJ'])
-"prob" declared "call:0"
+Street "flop" started. (community card = ['HK', 'C7', 'DJ'])
 "call" declared "call:0"
-Street "turn" started. (community card = ['HA', 'D4', 'HJ', 'D8'])
-"prob" declared "call:0"
-"call" declared "call:0"
-Street "river" started. (community card = ['HA', 'D4', 'HJ', 'D8', 'D6'])
-"prob" declared "call:0"
-"call" declared "call:0"
-"['prob']" won the round 2 (stack = {'prob': 10250, 'call': 9750})
+"Random_bot" declared "fold:0"
+"['call']" won the round 2 (stack = {'call': 12000, 'Random_bot': 8000})
 Started the round 3
 Street "preflop" started. (community card = [])
-"call" declared "call:500"
-"prob" declared "call:500"
-Street "flop" started. (community card = ['D5', 'HJ', 'H2'])
-"call" declared "call:0"
-"prob" declared "call:0"
-Street "turn" started. (community card = ['D5', 'HJ', 'H2', 'D7'])
-"call" declared "call:0"
-"prob" declared "raise:500"
-"call" declared "call:500"
-Street "river" started. (community card = ['D5', 'HJ', 'H2', 'D7', 'SA'])
-"call" declared "call:0"
-"prob" declared "raise:500"
-"call" declared "call:500"
-"['call']" won the round 3 (stack = {'prob': 8750, 'call': 11250})
+"Random_bot" declared "raise:750"
+"call" declared "call:750"
+Street "flop" started. (community card = ['C8', 'H3', 'DK'])
+"Random_bot" declared "fold:0"
+"['call']" won the round 3 (stack = {'call': 12750, 'Random_bot': 7250})
 Started the round 4
 Street "preflop" started. (community card = [])
-"prob" declared "fold:0"
-"['call']" won the round 4 (stack = {'prob': 8500, 'call': 11500})
+"call" declared "call:500"
+"Random_bot" declared "call:500"
+Street "flop" started. (community card = ['H8', 'D4', 'C9'])
+"call" declared "call:0"
+"Random_bot" declared "raise:500"
+"call" declared "call:500"
+Street "turn" started. (community card = ['H8', 'D4', 'C9', 'D2'])
+"call" declared "call:0"
+"Random_bot" declared "fold:0"
+"['call']" won the round 4 (stack = {'call': 13750, 'Random_bot': 6250})
 Started the round 5
 Street "preflop" started. (community card = [])
-"call" declared "call:500"
-"prob" declared "raise:750"
-"call" declared "call:750"
-Street "flop" started. (community card = ['SK', 'H9', 'S4'])
-"call" declared "call:0"
-"prob" declared "raise:500"
-"call" declared "call:500"
-Street "turn" started. (community card = ['SK', 'H9', 'S4', 'DK'])
-"call" declared "call:0"
-"prob" declared "call:0"
-Street "river" started. (community card = ['SK', 'H9', 'S4', 'DK', 'CQ'])
-"call" declared "call:0"
-"prob" declared "call:0"
-"['call']" won the round 5 (stack = {'prob': 7250, 'call': 12750})
+"Random_bot" declared "fold:0"
+"['call']" won the round 5 (stack = {'call': 14000, 'Random_bot': 6000})
