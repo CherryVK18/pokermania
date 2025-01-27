@@ -11,13 +11,13 @@ import re
 from .models import Bot, Match, TestBot
 
 
-def load_bot(filepath):
+def load_bot(filepath,bot_name=None):
     try:
         spec = importlib.util.spec_from_file_location("Bot", filepath)
         bot = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(bot)
         if hasattr(bot, 'Bot'):
-            return bot.Bot(), True
+            return bot.Bot(bot_name=bot_name), True
         else:
             return "The 'Bot' class is not found in the module.", False
     except Exception as e:
@@ -80,11 +80,11 @@ def parse_poker_output_to_json(content):
 
 
 def play_match(bot1_path, bot2_path, bot1, bot2, num_rounds=5, stack=10000):
-    bot1_instance, chk1 = load_bot(bot1_path)
-    bot2_instance, chk2 = load_bot(bot2_path)
+    bot1_instance, chk1 = load_bot(bot1_path,bot1.name)
+    bot2_instance, chk2 = load_bot(bot2_path,bot2.name)
 
     if not chk1 or not chk2:
-        return None, None, None, None
+        return bot1_instance, bot2_instance, None, None
 
     bot1_wins = 0
     bot2_wins = 0

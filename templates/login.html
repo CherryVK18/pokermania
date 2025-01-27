@@ -25,7 +25,7 @@ Login/Signup - PokerBots Arena
         </div>
 
         {% if messages %}
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-primary">
                 {% for message in messages %}
                 {{ message }}
                 {% endfor %}
@@ -47,9 +47,6 @@ Login/Signup - PokerBots Arena
                         <input type="password" name="password" id="loginPassword" required autocomplete="new-password">
                     </div>
                     <button type="submit" class="red">Login</button>
-                    <div class="form-footer">
-                        <a href="#">Forgot password?</a>
-                    </div>
                 </form>
             </div>
 
@@ -67,10 +64,14 @@ Login/Signup - PokerBots Arena
                     <div class="form-group">
                         <label for="signupEmail">Email</label>
                         <input type="email" name="email" id="signupEmail" required autocomplete="off">
+                        <small>⋅ Login with a email that you registered for Technex.</small>
                     </div>
                     <div class="form-group">
                         <label for="signupPassword">Password</label>
                         <input type="password" name="password" id="signupPassword" required>
+                        <small>⋅ Password must be atleast 8 characters.</small><br>
+                        <small>⋅ Password must contain one capital letter and a number.</small><br>
+                        <small>⋅ Password must contain one special character.</small>
                     </div>
                     <div id="passwordMessage" style="color: rgb(255, 255, 255);"></div>
                     <div class="form-group">

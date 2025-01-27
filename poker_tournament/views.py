@@ -1,4 +1,5 @@
 import traceback
+
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.http import JsonResponse
@@ -26,7 +27,6 @@ def register(request):
             messages.error(request, "Passwords do not match!")
             return redirect('/login/')
 
-        # # Check if password meets strength requirements
         if len(password) < 8:
             messages.error(request, "Password must be at least 8 characters long.")
             return redirect('/login/')
@@ -228,6 +228,12 @@ def test_run(request):
     bot_name = request.POST.get('name')
     bot_file = request.FILES['file']
 
+
+    if Bot.objects.filter(name=bot_name).exists():
+        messages.info(request, "BotName already taken!")
+        return redirect('/deploy_bot/')
+
+
     # Create a test bot
     new_test_bot = TestBot.objects.create(user=user, name=bot_name, file=bot_file)
 
@@ -258,9 +264,13 @@ def test_run(request):
             opponent_bot
         )
 
+        if(win_counts==None):
+            return JsonResponse({"Error":winner,"Error":chips_exchanged})
+        
         # Log results in TestMatch model
-        test_match=TestMatch.objects.create(
+        TestMatch.objects.create(
             bot1=new_test_bot,
+
             opponent_name=opponent_bot.name,
             winner=winner,
             total_chips_exchanged=chips_exchanged,
