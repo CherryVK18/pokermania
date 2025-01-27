@@ -268,7 +268,7 @@ def test_run(request):
             return JsonResponse({"Error":winner,"Error":chips_exchanged})
         
         # Log results in TestMatch model
-        TestMatch.objects.create(
+        test_match=TestMatch.objects.create(
             bot1=new_test_bot,
 
             opponent_name=opponent_bot.name,

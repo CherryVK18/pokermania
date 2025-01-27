@@ -1,45 +1,50 @@
+call1's hole cards: ['DT', 'H3']
+Random_bot's hole cards: ['H2', 'H9']
 Started the round 1
 Street "preflop" started. (community card = [])
-"Random_bot" declared "raise:750"
-"call" declared "call:750"
-Street "flop" started. (community card = ['SQ', 'D4', 'DK'])
-"Random_bot" declared "call:0"
-"call" declared "call:0"
-Street "turn" started. (community card = ['SQ', 'D4', 'DK', 'S7'])
-"Random_bot" declared "raise:500"
-"call" declared "call:500"
-Street "river" started. (community card = ['SQ', 'D4', 'DK', 'S7', 'HT'])
 "Random_bot" declared "fold:0"
-"['call']" won the round 1 (stack = {'call': 11250, 'Random_bot': 8750})
+"['call1']" won the round 1 (stack = {'call1': 10250, 'Random_bot': 9750})
+call1's hole cards: ['CA', 'C8']
+Random_bot's hole cards: ['CT', 'D7']
 Started the round 2
 Street "preflop" started. (community card = [])
-"call" declared "call:500"
-"Random_bot" declared "raise:750"
-"call" declared "call:750"
-Street "flop" started. (community card = ['HK', 'C7', 'DJ'])
-"call" declared "call:0"
+"call1" declared "call:500"
+"Random_bot" declared "call:500"
+Street "flop" started. (community card = ['H7', 'H6', 'HA'])
+"call1" declared "call:0"
+"Random_bot" declared "call:0"
+Street "turn" started. (community card = ['H7', 'H6', 'HA', 'ST'])
+"call1" declared "call:0"
+"Random_bot" declared "raise:500"
+"call1" declared "call:500"
+Street "river" started. (community card = ['H7', 'H6', 'HA', 'ST', 'HT'])
+"call1" declared "call:0"
 "Random_bot" declared "fold:0"
-"['call']" won the round 2 (stack = {'call': 12000, 'Random_bot': 8000})
+"['call1']" won the round 2 (stack = {'call1': 11250, 'Random_bot': 8750})
+call1's hole cards: ['CJ', 'DQ']
+Random_bot's hole cards: ['SJ', 'DT']
 Started the round 3
 Street "preflop" started. (community card = [])
-"Random_bot" declared "raise:750"
-"call" declared "call:750"
-Street "flop" started. (community card = ['C8', 'H3', 'DK'])
 "Random_bot" declared "fold:0"
-"['call']" won the round 3 (stack = {'call': 12750, 'Random_bot': 7250})
+"['call1']" won the round 3 (stack = {'call1': 11500, 'Random_bot': 8500})
+call1's hole cards: ['D8', 'S6']
+Random_bot's hole cards: ['SK', 'SJ']
 Started the round 4
 Street "preflop" started. (community card = [])
-"call" declared "call:500"
-"Random_bot" declared "call:500"
-Street "flop" started. (community card = ['H8', 'D4', 'C9'])
-"call" declared "call:0"
+"call1" declared "call:500"
+"Random_bot" declared "raise:750"
+"call1" declared "call:750"
+Street "flop" started. (community card = ['D6', 'CA', 'D2'])
+"call1" declared "call:0"
 "Random_bot" declared "raise:500"
-"call" declared "call:500"
-Street "turn" started. (community card = ['H8', 'D4', 'C9', 'D2'])
-"call" declared "call:0"
+"call1" declared "call:500"
+Street "turn" started. (community card = ['D6', 'CA', 'D2', 'S2'])
+"call1" declared "call:0"
 "Random_bot" declared "fold:0"
-"['call']" won the round 4 (stack = {'call': 13750, 'Random_bot': 6250})
+"['call1']" won the round 4 (stack = {'call1': 12750, 'Random_bot': 7250})
+call1's hole cards: ['D7', 'S8']
+Random_bot's hole cards: ['H7', 'S2']
 Started the round 5
 Street "preflop" started. (community card = [])
 "Random_bot" declared "fold:0"
-"['call']" won the round 5 (stack = {'call': 14000, 'Random_bot': 6000})
+"['call1']" won the round 5 (stack = {'call1': 13000, 'Random_bot': 7000})
