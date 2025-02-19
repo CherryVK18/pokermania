@@ -54,6 +54,8 @@
                                     <td>{{ match.result }}</td>
                                     {% if bot == match.result %}
                                         <td class="win">+{{ match.chips_exchanged }}</td>
+                                    {% elif match.result == 'No One' %}
+                                        <td class="draw">0</td>
                                     {% else %}
                                         <td class="loss">-{{ match.chips_exchanged }}</td>
                                     {% endif %}

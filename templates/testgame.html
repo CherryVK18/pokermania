@@ -391,9 +391,13 @@ Game Table
                 }
 
                 if (playerName === player1Name && !isfold) {
-                    const betDifference = actionAmount - player1Bet;
-                    player1Balance -= betDifference;
+                    let betDifference = actionAmount - player1Bet;
                     player1Bet = actionAmount;
+                    if(betDifference>player1Balance){
+                        betDifference=player1Balance;
+                        player1Bet = player1Balance;
+                    }
+                    player1Balance -= betDifference;
                     betLeftElement.textContent = `$${player1Bet}`;
                     player1BalanceElement.textContent = `$${player1Balance}`;
                     player1ActionsElement.textContent = `${formattedAction}`;
@@ -401,9 +405,13 @@ Game Table
                     player2ActionsElement.classList.add("hidden");
 
                 } else if (playerName === player2Name && !isfold) {
-                    const betDifference = actionAmount - player2Bet;
-                    player2Balance -= betDifference;
+                    let betDifference = actionAmount - player2Bet;
                     player2Bet = actionAmount;
+                    if(betDifference>player2Balance){
+                        betDifference=player2Balance;
+                        player2Bet = player2Balance;
+                    }
+                    player2Balance -= betDifference;
                     betRightElement.textContent = `$${player2Bet}`;
                     player2BalanceElement.textContent = `$${player2Balance}`;
                     betRightElement.textContent = `$${player2Bet}`;
