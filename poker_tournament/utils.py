@@ -29,7 +29,7 @@ def parse_poker_output_to_json(content):
     round_pattern = re.compile(r"Started the round (\d+)")
     street_pattern = re.compile(r'Street "([^"]+)" started\. \(community card = \[(.*?)\]\)')
     action_pattern = re.compile(r'"([^"]+)" declared "([^:]+):(\d+)"')
-    winner_pattern = re.compile(r'''"\['(\w+)\']" won the round (\d+) \(stack = (\{.*\})\)''')
+    winner_pattern = re.compile(r'''"\['(.+?)'\]" won the round (\d+) \(stack = (\{.*\})\)''')
 
     current_round = None
     current_street = None
@@ -42,7 +42,7 @@ def parse_poker_output_to_json(content):
             current_round = {
                 "round_number": int(round_match.group(1)),
                 "actions": {"preflop": [], "flop": [], "turn": [], "river": []},
-                "community_cards": {"flop": [], "turn": [], "river": []},
+                "community_cards": {"preflop":[],"flop": [], "turn": [], "river": []},
                 "winner": None,
                 "stacks": {}
             }
@@ -56,6 +56,8 @@ def parse_poker_output_to_json(content):
                 current_street = street_name
                 cards = street_match.group(2).replace("'", "").split(", ") if street_match.group(2) else []
                 current_round["community_cards"][street_name] = cards
+                if street_name not in current_round["actions"]:
+                    current_round["actions"][street_name] = []
                 continue
 
             action_match = action_pattern.search(line)
@@ -130,11 +132,11 @@ def play_match(bot1_path, bot2_path, bot1, bot2, num_rounds=5, stack=10000):
                 actions[street]['amount'] = [action['amount'] for action in street_actions]
 
                 # Update community cards
-                if street == 'preflop':
-                    communitycards[0] = []  # No community cards for preflop
-                else:
-                    communitycards_index = ['flop', 'turn', 'river'].index(street) + 1
-                    communitycards[communitycards_index] = round_data.get("community_cards", {}).get(street, [])
+            if street == 'preflop':
+                communitycards[0] = []  # No community cards for preflop
+            else:
+                communitycards_index = ['flop', 'turn', 'river'].index(street) + 1
+                communitycards[communitycards_index] = round_data.get("community_cards", {}).get(street, [])
 
         # Assemble round data in the desired format
 
@@ -166,9 +168,8 @@ def play_match(bot1_path, bot2_path, bot1, bot2, num_rounds=5, stack=10000):
             both_chips_exchanged = abs(stacks_array[0] - previous_stack[0]) + abs(stacks_array[1] - previous_stack[1])
             previous_stack = stacks_array
 
-            if winner == actions['preflop']['name'][0]:
+            if winner == bot1.name:
                 bot1_wins += 1
-
             else:
                 bot2_wins += 1
 
