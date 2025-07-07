@@ -1,50 +1,73 @@
-call1's hole cards: ['DT', 'H3']
-Random_bot's hole cards: ['H2', 'H9']
+vathsava's hole cards: ['H5', 'HA']
+charan's hole cards: ['D7', 'D5']
 Started the round 1
 Street "preflop" started. (community card = [])
-"Random_bot" declared "fold:0"
-"['call1']" won the round 1 (stack = {'call1': 10250, 'Random_bot': 9750})
-call1's hole cards: ['CA', 'C8']
-Random_bot's hole cards: ['CT', 'D7']
+"charan" declared "raise:750"
+"vathsava" declared "raise:1000"
+"charan" declared "raise:1250"
+"vathsava" declared "raise:1500"
+"charan" declared "raise:1750"
+"vathsava" declared "raise:2000"
+"charan" declared "raise:2250"
+"vathsava" declared "call:2250"
+Street "flop" started. (community card = ['C5', 'S4', 'C9'])
+"charan" declared "raise:500"
+"vathsava" declared "call:500"
+Street "turn" started. (community card = ['C5', 'S4', 'C9', 'DA'])
+"charan" declared "raise:500"
+"vathsava" declared "raise:1000"
+"charan" declared "raise:1500"
+"vathsava" declared "raise:2000"
+"charan" declared "raise:2500"
+"vathsava" declared "call:2500"
+Street "river" started. (community card = ['C5', 'S4', 'C9', 'DA', 'HT'])
+"charan" declared "raise:500"
+"vathsava" declared "fold:0"
+"['charan']" won the round 1 (stack = {'vathsava': 4750, 'charan': 15250})
+vathsava's hole cards: ['D4', 'H5']
+charan's hole cards: ['H8', 'D2']
 Started the round 2
 Street "preflop" started. (community card = [])
-"call1" declared "call:500"
-"Random_bot" declared "call:500"
-Street "flop" started. (community card = ['H7', 'H6', 'HA'])
-"call1" declared "call:0"
-"Random_bot" declared "call:0"
-Street "turn" started. (community card = ['H7', 'H6', 'HA', 'ST'])
-"call1" declared "call:0"
-"Random_bot" declared "raise:500"
-"call1" declared "call:500"
-Street "river" started. (community card = ['H7', 'H6', 'HA', 'ST', 'HT'])
-"call1" declared "call:0"
-"Random_bot" declared "fold:0"
-"['call1']" won the round 2 (stack = {'call1': 11250, 'Random_bot': 8750})
-call1's hole cards: ['CJ', 'DQ']
-Random_bot's hole cards: ['SJ', 'DT']
+"vathsava" declared "raise:750"
+"charan" declared "raise:1000"
+"vathsava" declared "raise:1250"
+"charan" declared "raise:1500"
+"vathsava" declared "call:1500"
+Street "flop" started. (community card = ['DA', 'S2', 'C3'])
+"vathsava" declared "raise:500"
+"charan" declared "raise:1000"
+"vathsava" declared "call:1000"
+Street "turn" started. (community card = ['DA', 'S2', 'C3', 'D8'])
+"vathsava" declared "raise:500"
+"charan" declared "raise:1000"
+"vathsava" declared "call:1000"
+Street "river" started. (community card = ['DA', 'S2', 'C3', 'D8', 'ST'])
+"vathsava" declared "call:0"
+"charan" declared "raise:500"
+"vathsava" declared "call:500"
+"['charan']" won the round 2 (stack = {'vathsava': 750, 'charan': 19250})
+vathsava's hole cards: ['DT', 'CJ']
+charan's hole cards: ['D2', 'H3']
 Started the round 3
 Street "preflop" started. (community card = [])
-"Random_bot" declared "fold:0"
-"['call1']" won the round 3 (stack = {'call1': 11500, 'Random_bot': 8500})
-call1's hole cards: ['D8', 'S6']
-Random_bot's hole cards: ['SK', 'SJ']
+"charan" declared "raise:750"
+"vathsava" declared "call:750"
+Street "flop" started. (community card = ['SJ', 'H5', 'H6'])
+Street "turn" started. (community card = ['SJ', 'H5', 'H6', 'H2'])
+Street "river" started. (community card = ['SJ', 'H5', 'H6', 'H2', 'SQ'])
+"['vathsava']" won the round 3 (stack = {'vathsava': 1500, 'charan': 18500})
+vathsava's hole cards: ['S7', 'D8']
+charan's hole cards: ['HA', 'HQ']
 Started the round 4
 Street "preflop" started. (community card = [])
-"call1" declared "call:500"
-"Random_bot" declared "raise:750"
-"call1" declared "call:750"
-Street "flop" started. (community card = ['D6', 'CA', 'D2'])
-"call1" declared "call:0"
-"Random_bot" declared "raise:500"
-"call1" declared "call:500"
-Street "turn" started. (community card = ['D6', 'CA', 'D2', 'S2'])
-"call1" declared "call:0"
-"Random_bot" declared "fold:0"
-"['call1']" won the round 4 (stack = {'call1': 12750, 'Random_bot': 7250})
-call1's hole cards: ['D7', 'S8']
-Random_bot's hole cards: ['H7', 'S2']
+"vathsava" declared "fold:0"
+"['charan']" won the round 4 (stack = {'vathsava': 1250, 'charan': 18750})
+vathsava's hole cards: ['CQ', 'DA']
+charan's hole cards: ['C9', 'HJ']
 Started the round 5
 Street "preflop" started. (community card = [])
-"Random_bot" declared "fold:0"
-"['call1']" won the round 5 (stack = {'call1': 13000, 'Random_bot': 7000})
+"charan" declared "raise:750"
+"vathsava" declared "raise:1000"
+"charan" declared "raise:1250"
+"vathsava" declared "fold:0"
+"['charan']" won the round 5 (stack = {'vathsava': 250, 'charan': 19750})
