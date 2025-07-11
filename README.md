@@ -40,7 +40,7 @@ class RandomBot(CountingBot):
 
 ## 📚 Documentation
 
-Check out the detailed guide at [`Documentation`](./doc.html) which includes:
+Check out the detailed guide at [`Documentation`]([./doc.html](https://pokermania.pythonanywhere.com/documentation/)) which includes:
 
 * How bots are built and customized.
 * Sample strategies with code.
@@ -77,7 +77,7 @@ PokerMania/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Local Development
 
 ### 1. Clone the repository
 
