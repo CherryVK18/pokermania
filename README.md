@@ -99,7 +99,7 @@ class RandomBot(CountingBot):
 
 ## 📚 Documentation
 
-Check out the detailed guide at [`Documentation`](./templates/documentation.html) which includes:
+Check out the detailed guide at [`Documentation`](./doc.html) which includes:
 
 * How bots are built and customized.
 * Sample strategies with code.
