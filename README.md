@@ -19,9 +19,9 @@ Welcome to **PokerMania**, an intelligent poker simulation and competition platf
 | ------------------- | ----------------------------------------- |
 | Homepage            | ![Homepage](./home.png)                   |
 | Tournament Results  | ![Leaderboard](./leaderboard.png)         |
-| My Bots             | ![My Bots](./results.png)                 |
+| My Bots             | ![My Bots](./mybots.png)                 |
 | Match Replay        | ![Bot Match](./game.png)                  |
-| Match Result        | ![Result](./home.png)                     |
+| Match Result        | ![Result](./result.png)                     |
 
 ---
 ## 🧠 Advanced Bot Strategies
