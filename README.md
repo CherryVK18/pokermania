@@ -1,6 +1,51 @@
 # 🃏 PokerMania - Poker Bot Showdown
 
+[![Live Site](https://img.shields.io/badge/🚀_Live_Site-Visit_Now-0D6EFD?style=for-the-badge&logo=python&logoColor=white&labelColor=0D6EFD&color=0D6EFD&gradient=linear-gradient(160deg,#0D6EFD,#6610F2))](https://pokermania.pythonanywhere.com)
+
 Welcome to **PokerMania**, an intelligent poker simulation and competition platform built using **Python** and **Django**. Players design their own poker-playing bots and face off against others in a Texas Hold’em-style match using the **PyPokerEngine** framework.
+
+---
+## 📊 Features
+
+* Real-time bot battles using PyPokerEngine.
+* Web interface for instructions and documentation.
+* Extendable bot API for creating custom strategies.
+* Historical data capture for replays and performance analysis.
+
+---
+## 🤖 How to Create a Poker Bot
+
+1. Inherit from the `CountingBot` base class.
+2. Override the `declare_action()` method.
+3. Register your bot and simulate games using `setup_config()` and `start_poker()`.
+
+### Example: Random Bot
+
+```python
+class RandomBot(CountingBot):
+    def declare_action(self, valid_actions, hole_card, round_state):
+        # Randomly selects call, raise or fold
+        ...
+```
+
+---
+## 🧠 Advanced Bot Strategies
+
+* **AggressiveBot**: Always raises with max possible amount.
+* **CautiousBot**: Calls if pot is small, otherwise folds.
+* **GeneralPlayer**: Uses Monte Carlo simulation to estimate hand strength.
+* **AggressivePlayer**: Learns from opponent's behavior to counter bluffing.
+
+---
+
+## 📚 Documentation
+
+Check out the detailed guide at [`Documentation`](./doc.html) which includes:
+
+* How bots are built and customized.
+* Sample strategies with code.
+* Explanation of win rate estimation, bluffing detection, and counters.
+* Visual examples of gameplay rounds.
 
 ---
 
@@ -62,51 +107,6 @@ python manage.py runserver
 
 ---
 
-## 🤖 How to Create a Poker Bot
-
-1. Inherit from the `CountingBot` base class.
-2. Override the `declare_action()` method.
-3. Register your bot and simulate games using `setup_config()` and `start_poker()`.
-
-### Example: Random Bot
-
-```python
-class RandomBot(CountingBot):
-    def declare_action(self, valid_actions, hole_card, round_state):
-        # Randomly selects call, raise or fold
-        ...
-```
-
----
-
-## 🧠 Advanced Bot Strategies
-
-* **AggressiveBot**: Always raises with max possible amount.
-* **CautiousBot**: Calls if pot is small, otherwise folds.
-* **GeneralPlayer**: Uses Monte Carlo simulation to estimate hand strength.
-* **AggressivePlayer**: Learns from opponent's behavior to counter bluffing.
-
----
-
-## 📊 Features
-
-* Real-time bot battles using PyPokerEngine.
-* Web interface for instructions and documentation.
-* Extendable bot API for creating custom strategies.
-* Historical data capture for replays and performance analysis.
-
----
-
-## 📚 Documentation
-
-Check out the detailed guide at [`Documentation`](./doc.html) which includes:
-
-* How bots are built and customized.
-* Sample strategies with code.
-* Explanation of win rate estimation, bluffing detection, and counters.
-* Visual examples of gameplay rounds.
-
----
 
 ## 🧑‍💻 Authors
 
