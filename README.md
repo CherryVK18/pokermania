@@ -13,20 +13,13 @@ Welcome to **PokerMania**, an intelligent poker simulation and competition platf
 * Historical data capture for replays and performance analysis.
 
 ---
-## 🤖 How to Create a Poker Bot
+## 📸 Screenshots
 
-1. Inherit from the `CountingBot` base class.
-2. Override the `declare_action()` method.
-3. Register your bot and simulate games using `setup_config()` and `start_poker()`.
-
-### Example: Random Bot
-
-```python
-class RandomBot(CountingBot):
-    def declare_action(self, valid_actions, hole_card, round_state):
-        # Randomly selects call, raise or fold
-        ...
-```
+| Page                | Screenshot                                |
+| ------------------- | ----------------------------------------- |
+| Homepage / Docs     | ![Homepage](./screenshots/home.png)       |
+| Bot Match Interface | ![Bot Match](./screenshots/bot_match.png) |
+| Tournament Results  | ![Results](./screenshots/results.png)     |
 
 ---
 ## 🧠 Advanced Bot Strategies
